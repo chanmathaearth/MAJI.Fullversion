@@ -16,6 +16,7 @@
         html {
             scroll-behavior: smooth;
         }
+        
     </style>
 </head>
 
@@ -24,8 +25,8 @@
       font-weight: 300;
       font-style: normal;
     ">
-    <div id="topbar">
-        <nav id="1">
+    <div class="sidebar text-white  text-center z-40 absolute inset-0 shadow-red-500/50">
+        <nav id="1" class="backdrop-blur-md">
             <div class="flex justify-between h-[6rem] px-10 shadow items-center smooth">
                 <div class="flex space-x-1 items-center flex-shrink-0 animate-pulse ">
                     <a href="../home/index.html">
@@ -43,44 +44,43 @@
                             d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                <div class="flex space-x-4 items-center hidden sm:flex text-nowrap">
+                <div class="flex space-x-6 items-center hidden sm:flex text-nowrap">
                     <a href="../reservation/index.php"
-                        class="px-4 text-red-700 text-sm transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 ">สำรองที่นั่ง</a>
+                        class="px-4 text-white text-sm transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 ">สำรองที่นั่ง</a>
                     <div
-                        class="text-red-700 text-sm transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100">
+                        class="text-white text-sm transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100">
                         <button
-                            class="text-red-700 text-sm transform hover:scale-[105%] hover:text-red-500 transition-transform duration-100"
+                            class="text-white text-sm transform hover:scale-[105%] hover:text-red-500 transition-transform duration-100"
                             type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example"
                             aria-controls="drawer-example">
                             รีวิว
                         </button>
                     </div>
-                    <div class="divide-x"></div>
 					<a href="../../index.php"
-                    class="flex px-4 py-2 rounded text-red-700 transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 text-sm">ออกจากระบบ
-                    <svg class="ml-3" fill="#E53B17"  height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 384.971 384.971" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g id="Sign_Out"> <path d="M180.455,360.91H24.061V24.061h156.394c6.641,0,12.03-5.39,12.03-12.03s-5.39-12.03-12.03-12.03H12.03 C5.39,0.001,0,5.39,0,12.031V372.94c0,6.641,5.39,12.03,12.03,12.03h168.424c6.641,0,12.03-5.39,12.03-12.03 C192.485,366.299,187.095,360.91,180.455,360.91z"></path> <path d="M381.481,184.088l-83.009-84.2c-4.704-4.752-12.319-4.74-17.011,0c-4.704,4.74-4.704,12.439,0,17.179l62.558,63.46H96.279 c-6.641,0-12.03,5.438-12.03,12.151c0,6.713,5.39,12.151,12.03,12.151h247.74l-62.558,63.46c-4.704,4.752-4.704,12.439,0,17.179 c4.704,4.752,12.319,4.752,17.011,0l82.997-84.2C386.113,196.588,386.161,188.756,381.481,184.088z"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
+                    class="flex px-4 py-2 rounded text-white transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 text-sm">ออกจากระบบ
+                    <svg class="ml-3" fill="currentColor"  height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 384.971 384.971" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g id="Sign_Out"> <path d="M180.455,360.91H24.061V24.061h156.394c6.641,0,12.03-5.39,12.03-12.03s-5.39-12.03-12.03-12.03H12.03 C5.39,0.001,0,5.39,0,12.031V372.94c0,6.641,5.39,12.03,12.03,12.03h168.424c6.641,0,12.03-5.39,12.03-12.03 C192.485,366.299,187.095,360.91,180.455,360.91z"></path> <path d="M381.481,184.088l-83.009-84.2c-4.704-4.752-12.319-4.74-17.011,0c-4.704,4.74-4.704,12.439,0,17.179l62.558,63.46H96.279 c-6.641,0-12.03,5.438-12.03,12.151c0,6.713,5.39,12.151,12.03,12.151h247.74l-62.558,63.46c-4.704,4.752-4.704,12.439,0,17.179 c4.704,4.752,12.319,4.752,17.011,0l82.997-84.2C386.113,196.588,386.161,188.756,381.481,184.088z"></path> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
                     </a>
                 </div>
             </div>
             <div class="hidden w-full" id="navbar-hamburger">
-                <ul class="flex flex-col font-medium rounded-lg justify-center items-center bg-gray-50">
+                <ul class="flex flex-col font-medium rounded-lg justify-center items-center backdrop-blur-md">
                     <li>
                         <a href="../reservation/index.php"
-                            class="block ml-2 py-2 px-3 text-red-700 hover:text-red-950">สำรองที่นั่ง</a>
+                            class="block ml-2 py-2 px-3 text-white hover:text-red-950">สำรองที่นั่ง</a>
                     </li>
                     <li>
-                        <button class="block ml-2 py-2 px-3 text-red-700 hover:text-red-950" type="button"
+                        <button class="block ml-2 py-2 px-3 text-white hover:text-red-950" type="button"
                             data-drawer-target="drawer-example" data-drawer-show="drawer-example"
                             aria-controls="drawer-example">
                             รีวิว
                         </button>
                     </li>
                     <li>
-                    <button class="block ml-2 py-2 px-3 text-red-700 hover:text-red-950" type="button"
+                    <button class="block ml-2 py-2 px-3 text-white hover:text-red-950" type="button"
                             data-drawer-target="drawer-example" data-drawer-show="drawer-example"
                             aria-controls="drawer-example">
                             <a href="../../index.php"
-                        class="font-medium flex px-4 py-2 rounded text-red-700 transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 text-sm">ออกจากระบบ
+                        class="font-medium flex px-4 py-2 rounded text-white transform hover:scale-[120%] hover:text-red-500 transition-transform duration-100 text-sm">ออกจากระบบ
                         </a>
                         </button>
                     
@@ -182,50 +182,18 @@
         </div>
     </div>
 
-
-    <div id="default-carousel" class="w-[100vw] h-[100vh] fixed mt-0 rounded-3xl" data-carousel="slide" style="background-size: cover;">
-        <div class="relative h-screen object-cover overflow-hidden">
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="poster4.png" class="absolute block w-full"
-                    style="width: 100vw; height: 89vh; object-fit: cover;">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="poster2.png" class="absolute block w-full"
-                    style="width: 100vw; height: 89vh; object-fit: cover;">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="poster1.png" class="absolute block w-full"
-                    style="width: 100vw; height: 89vh; object-fit: cover;">
-            </div>
-        </div>
-        <button type="button" class="fixed top-20 start-0 z-30 h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-white">
-                <svg class="w-4 h-4 text-gray-50  rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 1 1 5l4 4" />
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="fixed top-20 end-0 z-30 h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-white">
-                <svg class="w-4 h-4 text-gray-50 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div>
+    <video src="maji.mp4" autoplay loop muted class="w-full h-full object-cover" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+      "></video>
 
     </div>
-
-    </div>
-    <div class="flex justify-center fixed bottom-40 ml-0 scale-[150%] max-[650px]:scale-[110%] max-[650px]:ml-[-6%]">
+    <div class="flex justify-center fixed bottom-40 ml-0 scale-[150%] max-[650px]:scale-[110%] max-[650px]:ml-[-6%] z-50">
         <a href="../delivery/index.html"
             class="flex px-3 py-1 ml-4 text-bold items-center rounded-full text-white  text-sm bg-red-600 shadow-red-500">
             <svg class="animate-pulse mr-2" fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -246,6 +214,13 @@
             <span class="animate-pulse">สั่งอาหารทันที</span>
 
         </a>
+    </div>
+    <div class="text-white text-center z-20 absolute inset-0 flex justify-center items-center shadow-red-500/50">
+        <p
+            class="type max-[640px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r text-center bg-gradient-to-r text-transparent bg-clip-text from-red-200 to-red-400 ">
+            ยินดีต้อนรับสู่<br /><span class="sm:text-7xl md:text-9xl lg:text-11xl xl:text-13xl">มาจิ
+            </span>
+        </p>
     </div>
 
     <div class="flex justify-center items-center mt-[-5%]">
