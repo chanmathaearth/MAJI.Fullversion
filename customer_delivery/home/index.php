@@ -13,6 +13,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
     <style>
+        <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-container {
+            width: 100%;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.077);
+            backdrop-filter: blur(12px);
+        }
+
+        .type {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.10em;
+            animation: typing 8s steps(1200, end) infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                opacity: 0;
+                width: 0;
+            }
+
+            25% {
+                opacity: 1;
+                width: 100%;
+            }
+
+            50% {
+                opacity: 1;
+                width: 100%;
+            }
+
+            80% {
+                opacity: 1;
+                width: 100%;
+            }
+
+            100% {
+                opacity: 0;
+                width: 100%;
+            }
+        }
+    </style>
         html {
             scroll-behavior: smooth;
         }
