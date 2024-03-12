@@ -27,40 +27,23 @@
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script>
-        function reloadPage() {
-            // Reload the current document
-            window.location.reload;
-        }
-
-        function validateForm() {
-            var sele = document.getElementById('sele').value;
-            var name = document.getElementById('name').value;
-            var price = document.getElementById('price').value;
-            var desc = document.getElementById('desc').value;
-            var time = document.getElementById('time').value;
-            var Type = document.getElementById('Type').value;
-            var fileName = document.getElementById('file_input').value;
-            if (sele === "" || name === "" || price === "" || desc === "" || time === "" || Type === "" || fileName === "") {
-                alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
-                return false;
-            }
-        }
-    </script>
     <div id="mainnavbar"></div>
     <div class="bg-white pr-8 pl-8 pb-8">
         <div class="grid place-content-center gap-2 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 mt-[3%]">
             <div class="col-span-3 sm:col-span-4">
                 <div id="blaktomenu" class="hover:text-red-600 ">
-                <a href="manageres.html">
-                    <span class="flex">
-                        <svg class="w-6 h-6 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m15 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
+                    <a href="manageRes.html" class="">
+                        <span class="flex ">
+                            <svg class="justify-center mt-0.5 mr-1 ring-1 ring-red-500 rounded-full" height="20px" width="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                            ย้อนกลับ
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -133,13 +116,13 @@
 
                         <div>
                             <label class="block mb-2 mt-3 text-sm font-medium text-black" for="file_input">ใส่รูปเมนู</label>
-                            <input name="fileName" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white" id="file_input" type="file">
+                            <input type="file" name="fileName" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white" id="file_input" type="file">
                             <div id="image" name="image"></div>
                         </div>
                     </div>
 
                     <div class="mt-6">
-                        <button onclick="validateForm()" type="submit" name="submit" class="w-full px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:border-blue-300">
+                        <button type="submit" name="submit" class="w-full px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:border-blue-300">
                             Submit
                         </button>
                     </div>
@@ -178,8 +161,8 @@
 
     <?php
     $servername = "localhost";
-    $username = "g23japaneseres";
-    $password = "4401MPW561A";
+    $username = "root";
+    $password = "";
     $dbname = "maji";
 
     // Create connection <div id="basket" class="w-w-1/4"></div>
@@ -201,31 +184,36 @@
         $time = $_POST['time'];
 
 
-        if ($sele == "edit") {
-            $sql = "UPDATE menu SET menuId = '$menuId', menuName = '$name', menuImage = '$fileName', menuPrice = '$price', menuDescription = '$desc', menuTypeID = '$type', menuTime = '$time' WHERE menuId = '$menuId'";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo "<script>alert('การอัพเดทสำเร็จ'); window.location.reload;</script>";
-            } else {
-                echo "<script>alert('การอัพเดทไม่สำเร็จ');window.location.reload;</script>";
+        try {
+            if ($sele == "edit") {
+                $sql = "UPDATE menu SET menuId = '$menuId', menuName = '$name', menuImage = '$fileName', menuPrice = '$price', menuDescription = '$desc', menuTypeID = '$type', menuTime = '$time' WHERE menuId = '$menuId'";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<script>alert('การอัพเดทสำเร็จ'); window.location.reload;</script>";
+                } else {
+                    throw new Exception("การอัพเดทไม่สำเร็จ");
+                }
+            } else if ($sele == "delete") {
+                $sql = "DELETE FROM menu WHERE menuId = '$menuId'";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<script>alert('การลบสำเร็จ'); window.location.reload;</script>";
+                } else {
+                    throw new Exception("การลบไม่สำเร็จ");
+                }
+            } else if ($sele == "add") {
+                $sql = "INSERT INTO `menu`( `menuName`, `menuImage`, `menuPrice`, `menuDescription`, `menuTypeID`, `menuTime`) VALUES ('$name','$fileName',' $price','$desc','$type','$time')";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<script>alert('เพิ่มเมนูสำเร็จ'); window.location.reload;</script>";
+                } else {
+                    throw new Exception("เพิ่มเมนูไม่สำเร็จ");
+                }
             }
-        } else if ($sele == "delete") {
-            $sql = "DELETE FROM menu WHERE menuId = '$menuId'";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo "<script>alert('การลบสำเร็จ'); window.location.reload ;</script>";
-            } else {
-                echo "<script>alert('การลบไม่สำเร็จ'); window.location.reload ;</script>";
-            }
-        } else if ($sele == "add") {
-            $sql = "INSERT INTO `menu`( `menuName`, `menuImage`, `menuPrice`, `menuDescription`, `menuTypeID`, `menuTime`) VALUES ('$name','$fileName',' $price','$desc','$type','$time')";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo "<script>alert('เพิ่มเมนูสำเร็จ'); window.location.reload; </script>";
-            } else {
-                echo "<script>alert('เพิ่มเมนูไม่สำเร็จ'); window.location.reload;</script>";
-            }
+        } catch (Exception $e) {
+            echo "<script>alert('ไม่สามารถดำเนินการได้เนื่องจากมีการสั่งเมนูนี้'); window.location.reload;</script>";
         }
+        
     }
 
 
