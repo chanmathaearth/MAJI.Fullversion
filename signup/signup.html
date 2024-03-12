@@ -142,8 +142,12 @@
         var phone = form.elements['phone'].value;
 
         console.log(email);
-
-        confirm(email, password, firstname, lastname, phone);
+        if (email.trim() !== "" && password.trim() !== "" && firstname.trim() !== "" && lastname.trim() !== "" && phone.trim() !== "") {
+            confirm(email, password, firstname, lastname, phone);
+        }
+        else{
+            alert('กรอกข้อมูลให้ครบถ้วน');
+        }
     }
 
     function confirm(email, password, firstname, lastname, phone) {
@@ -156,7 +160,7 @@
                 alert(result);
 
                 if (result === "ลงทะเบียนเรียบร้อย") {
-                    window.location.href = '../login/login.php';  // Redirect to home.php
+                    window.location.href = '../index.php';  // Redirect to home.php
                 } else {
                     location.reload();
                 }
